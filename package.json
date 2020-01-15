@@ -1,7 +1,7 @@
 {
   "name": "unist-util-flat-filter",
   "version": "1.0.0",
-  "description": "",
+  "description": "Create a new Unist tree by filtering with the provided function and getting all of the returned results in a flat list, not including parent nodes",
   "main": "index.js",
   "scripts": {
     "test": "jest",
