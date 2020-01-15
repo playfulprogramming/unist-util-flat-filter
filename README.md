@@ -1,11 +1,11 @@
 # unist-util-filter
 
-[**unist**][unist] utility to create a new tree with all nodes that pass the
+[**unist**](https://github.com/syntax-tree/unist) utility to create a new tree with all nodes that pass the
 given test.
 
 ## Install
 
-[npm][]:
+[npm](https://docs.npmjs.com/cli/install):
 
 ```sh
 npm install unist-util-flat-filter
@@ -46,17 +46,17 @@ Yields:
 
 ### `filter(tree[, test])`
 
-Create a new [tree][] consisting of copies of all nodes that pass `test`.
-The tree is walked in [order][], visiting the parent, then the children nodes node itself, etc.
+Create a new [tree](https://github.com/syntax-tree/unist#tree) consisting of copies of all nodes that pass `test`.
+The tree is walked in [inorder](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/), visiting the parent, then the children nodes node itself, etc.
 
 ###### Parameters
 
-*   `tree` ([`Node?`][node])
-    — [Tree][] to filter
-*   `test` ([`Test`][is], optional) — [`is`][is]-compatible test (such as a
-    [type][])
+*   `tree` ([`Node?`](https://github.com/syntax-tree/unist#node))
+    — [Tree](https://github.com/syntax-tree/unist#tree) to filter
+*   `test` ([`Test`](https://github.com/syntax-tree/unist-util-is), optional) — [`is`](https://github.com/syntax-tree/unist-util-is)-compatible test (such as a
+    [type](https://github.com/syntax-tree/unist#type))
 
 ###### Returns
 
-[`Node?`][node] — New filtered [tree][].
+[`Node?`](https://github.com/syntax-tree/unist#node) — New filtered [tree](https://github.com/syntax-tree/unist#tree).
 `null` is returned if `tree` itself didn’t pass the test, or is cascaded away.
