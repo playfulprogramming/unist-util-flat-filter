@@ -1,0 +1,39 @@
+{
+  "name": "unist-util-flat-filter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "format": "prettier --write '**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unicorn-utterances/unist-util-flat-filter.git"
+  },
+  "keywords": [
+    "ast",
+    "clone",
+    "filter",
+    "immutable",
+    "node",
+    "test",
+    "tree",
+    "unist",
+    "util"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unicorn-utterances/unist-util-flat-filter/issues"
+  },
+  "types": "index.d.ts",
+  "homepage": "https://github.com/unicorn-utterances/unist-util-flat-filter#readme",
+  "dependencies": {
+    "unist-util-is": "^4.0.0"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0",
+    "prettier": "^1.19.1"
+  }
+}
