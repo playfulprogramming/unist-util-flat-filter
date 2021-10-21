@@ -1,11 +1,24 @@
 {
   "name": "unist-util-flat-filter",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Create a new Unist tree by filtering with the provided function and getting all of the returned results in a flat list, not including parent nodes",
+  "sideEffects": false,
+  "type": "module",
   "main": "index.js",
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
+  "files": [
+    "index.js",
+    "types/index.d.ts"
+  ],
+  "types": "types/index.d.ts",
   "scripts": {
-    "test": "jest",
-    "format": "prettier --write '**/*.js'"
+    "lint": "xo",
+    "test:types": "tsd",
+    "test:logic": "tap -Rspec --100 test.js",
+    "test": "npm run lint && npm run test:types && npm run test:logic",
+    "report": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -22,18 +35,37 @@
     "unist",
     "util"
   ],
-  "author": "",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/unicorn-utterances/unist-util-flat-filter/issues"
   },
-  "types": "index.d.ts",
   "homepage": "https://github.com/unicorn-utterances/unist-util-flat-filter#readme",
   "dependencies": {
-    "unist-util-is": "^4.0.0"
+    "unist-util-is": "^5.1.1"
   },
   "devDependencies": {
-    "jest": "^24.9.0",
-    "prettier": "^1.19.1"
+    "@types/unist": "^2.0.6",
+    "coveralls": "^3.1.1",
+    "prettier": "^2.4.1",
+    "tap": "^15.0.10",
+    "tsd": "^0.17.0",
+    "typescript": "^4.4.3",
+    "xo": "^0.45.0"
+  },
+  "xo": {
+    "prettier": true,
+    "rules": {
+      "unicorn/prefer-number-properties": "off",
+      "unicorn/no-array-reduce": "off",
+      "unicorn/no-fn-reference-in-iterator": "off"
+    }
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "useTabs": false,
+    "singleQuote": true,
+    "bracketSpacing": false,
+    "semi": true,
+    "trailingComma": "none"
   }
 }

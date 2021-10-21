@@ -1,31 +1,32 @@
-var convert = require("unist-util-is/convert");
-
-module.exports = flatFilter;
+import {convert} from 'unist-util-is';
 
 function flatFilterGeneric(node, test) {
-  var is = convert(test);
+  const is = convert(test);
   if (!node) return [];
   if (is(node)) return [node];
   if (!node.children) return [];
-  let acceptedChildren = [];
-  for (var i = 0; i < node.children.length; i++) {
-    var child = node.children[i];
-    var flatFilterResult = flatFilterGeneric(child, test);
-    if (flatFilterResult && flatFilterResult.length) {
+  const acceptedChildren = [];
+  for (let i = 0; i < node.children.length; i++) {
+    const child = node.children[i];
+    const flatFilterResult = flatFilterGeneric(child, test);
+    if (flatFilterResult && flatFilterResult.length > 0) {
       // Take array results and push to the returned array to flatten it
-      for (var ii = 0; ii < flatFilterResult.length; ii++) {
-        acceptedChildren.push(flatFilterResult[ii]);
+      for (const element of flatFilterResult) {
+        acceptedChildren.push(element);
       }
     }
   }
+
   return acceptedChildren;
 }
 
 function flatFilter(node, test) {
-  var results = flatFilterGeneric(node, test);
-  if (!results || !results.length) return null;
+  const results = flatFilterGeneric(node, test);
+  if (!results || results.length === 0) return null;
   return {
-    type: "root",
+    type: 'root',
     children: results
   };
 }
+
+export default flatFilter;

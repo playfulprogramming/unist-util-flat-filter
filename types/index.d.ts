@@ -1,7 +1,7 @@
 // TypeScript Version: 3.5
 
-import { Node } from 'unist';
-import { Test } from 'unist-util-is';
+import {Node, Parent} from 'unist';
+import {Test} from 'unist-util-is';
 
 /**
  * Create a new tree consisting of copies of all nodes that pass test.
@@ -10,6 +10,9 @@ import { Test } from 'unist-util-is';
  * @param tree Tree to filter
  * @param filter unist-util-is compatible test
  */
-declare function unistUtilFilter<T extends Node>(tree: Node, filter?: Test<T>): T | null;
+declare function unistUtilFilter<T extends Node>(
+  tree: Parent,
+  filter: Test
+): T | null;
 
-export = unistUtilFilter;
+export default unistUtilFilter;

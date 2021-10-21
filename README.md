@@ -14,16 +14,16 @@ npm install unist-util-flat-filter
 ## Usage
 
 ```js
-var u = require('unist-builder')
-var flatFilter = require('unist-util-flat-filter')
+import u from 'unist-builder';
+import flatFilter from 'unist-util-flat-filter';
 
-var tree = u('root', [
+const tree = u('root', [
   u('leaf', '1'),
   u('node', [u('leaf', '2'), u('node', [u('leaf', '3')])]),
   u('leaf', '4')
 ])
 
-var newTree = flatFilter(tree, node => node.type === 'leaf')
+const newTree = flatFilter(tree, node => node.type === 'leaf')
 
 console.dir(newTree, {depth: null})
 ```
